@@ -2,6 +2,8 @@
 # FROM mcr.microsoft.com/azure-functions/python:3.0-python3.6-appservice
 FROM mcr.microsoft.com/azure-functions/python:3.0-python3.6
 
+FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
+
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 

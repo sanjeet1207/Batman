@@ -96,6 +96,40 @@ add setting to function app
 az functionapp config appsettings set --name batman420azfun --resource-group AzureFunctionsContainers-batman-rg --settings AzureWebJobsStorage=DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=batman420storage;AccountKey=AmcenEX6/XCCKZL9rGNmsnJ0ejKqzvswaJkGe+I5SvB2mcbbTwMuHKuFoe0SXfVdRwu8zhUE15HpGa/pwQx/ng==
 
 
+enable continuous deployment
+az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name batman420azfun --resource-group AzureFunctionsContainers-batman-rg
+
+https://$batman420azfun:xkBlzzx0gq3NMgPtP74PxYDtLkqvmYP4xMnpevGhE4tngip5edJ3QmTFKeh7@batman420azfun.scm.azurewebsites.net/docker/hook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 docker build --tag sanjeettm/batmanazfuncimage:v1.0.0 .
 
 docker run -p 8080:80 sanjeettm/batmanazfuncimage:v1.0.0
