@@ -80,7 +80,9 @@ az functionapp plan create --resource-group AzureFunctionsContainers-batman-rg -
 
 
 create a function app
-az functionapp create --name batman420azfun --storage-account batman420storage --resource-group AzureFunctionsContainers-batman-rg --plan batmanmyPremiumPlan --runtime python --deployment-container-image-name sanjeettm/batmanazfuncimage:v1.0.0
+az functionapp create --name batman420azfun --storage-account batman420storage --resource-group AzureFunctionsContainers-batman-rg --plan batmanmyPremiumPlan --runtime python --deployment-container-image-name sanjeettm
+/batmanazfuncimage:latest
+
 
 '''
 az functionapp create --name alter-deployment-v1 --storage-account batman420storage --resource-group AzureFunctionsContainers-batman-rg --plan batmanmyPremiumPla--runtime python --functions-version 3
@@ -90,11 +92,15 @@ az functionapp create --name alter-deployment-v1 --storage-account batman420stor
 display connection string
 az storage account show-connection-string --resource-group AzureFunctionsContainers-batman-rg --name batman420storage --query connectionString --output tsv
 
+
 DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=batman420storage;AccountKey=AmcenEX6/XCCKZL9rGNmsnJ0ejKqzvswaJkGe+I5SvB2mcbbTwMuHKuFoe0SXfVdRwu8zhUE15HpGa/pwQx/ng==
+
+
+
+
 
 add setting to function app
 az functionapp config appsettings set --name batman420azfun --resource-group AzureFunctionsContainers-batman-rg --settings AzureWebJobsStorage=DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=batman420storage;AccountKey=AmcenEX6/XCCKZL9rGNmsnJ0ejKqzvswaJkGe+I5SvB2mcbbTwMuHKuFoe0SXfVdRwu8zhUE15HpGa/pwQx/ng==
-
 
 enable continuous deployment
 az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name batman420azfun --resource-group AzureFunctionsContainers-batman-rg
